@@ -1,5 +1,5 @@
 import { ThemingProps } from '@chakra-ui/react'
-import { Chain } from '@wagmi/core/chains'
+import { Chain } from '@wagmi/core'
 
 export const SITE_NAME = 'Tuesday Heartbreak'
 export const SITE_DESCRIPTION = 'I want to be with you when the night time comes'
@@ -31,7 +31,7 @@ export const artheraTestnet: Chain = {
     etherscan: { name: 'Arthera Testnet Explorer', url: 'https://explorer-test.arthera.net' },
     default: { name: 'Arthera Testnet Explorer', url: 'https://explorer-test.arthera.net' },
   },
-}
+} as const satisfies Chain
 
 export const ETH_CHAINS = [artheraTestnet]
 
