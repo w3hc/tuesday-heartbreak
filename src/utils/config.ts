@@ -1,9 +1,9 @@
 import { ThemingProps } from '@chakra-ui/react'
-import { mainnet, sepolia, polygon, optimism, arbitrum } from '@wagmi/core/chains'
+import { Chain } from '@wagmi/core/chains'
 
-export const SITE_NAME = 'Nexth'
-export const SITE_DESCRIPTION = 'Next.js + Ethereum starter kit'
-export const SITE_URL = 'https://nexth.vercel.app'
+export const SITE_NAME = 'Tuesday Heartbreak'
+export const SITE_DESCRIPTION = 'I want to be with you when the night time comes'
+export const SITE_URL = 'tuesday-heartbreak.netlify.app'
 
 export const THEME_INITIAL_COLOR = 'system'
 export const THEME_COLOR_SCHEME: ThemingProps['colorScheme'] = 'gray'
@@ -11,10 +11,29 @@ export const THEME_CONFIG = {
   initialColorMode: THEME_INITIAL_COLOR,
 }
 
-export const SOCIAL_TWITTER = 'wslyvh'
-export const SOCIAL_GITHUB = 'wslyvh/nexth'
+export const SOCIAL_TWITTER = 'W3HC'
+export const SOCIAL_GITHUB = 'w3hc/tuesday-heartbreak'
 
-export const ETH_CHAINS = [mainnet, sepolia, polygon, optimism, arbitrum]
+export const artheraTestnet: Chain = {
+  id: 10243,
+  name: 'Arthera TestNet',
+  network: 'artheraTestnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'AA',
+    symbol: 'AA',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc-test.arthera.net'] },
+    default: { http: ['https://rpc-test.arthera.net'] },
+  },
+  blockExplorers: {
+    etherscan: { name: 'Arthera Testnet Explorer', url: 'https://explorer-test.arthera.net' },
+    default: { name: 'Arthera Testnet Explorer', url: 'https://explorer-test.arthera.net' },
+  },
+}
+
+export const ETH_CHAINS = [artheraTestnet]
 
 export const SERVER_SESSION_SETTINGS = {
   cookieName: SITE_NAME,
