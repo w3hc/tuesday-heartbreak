@@ -27,6 +27,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@next/font": "13.1.1",
+    "@wagmi/core": "^1.4.2",
     "@web3modal/wagmi": "^3.0.2",
     "dayjs": "^1.11.7",
     "ethers": "^6.7.1",
