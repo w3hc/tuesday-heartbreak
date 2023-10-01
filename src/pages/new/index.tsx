@@ -3,7 +3,7 @@ import { Button, Heading, Text, ListItem, UnorderedList } from '@chakra-ui/react
 import { NextSeo } from 'next-seo'
 import { LinkComponent } from 'components/layout/LinkComponent'
 
-function MintNFT() {
+function New() {
   const { chain } = useNetwork()
 
   const prepareContractWrite = usePrepareContractWrite({
@@ -30,15 +30,15 @@ function MintNFT() {
 
   return (
     <div>
-      <Heading as="h3" fontSize="xl" my={4}>
-        Try out
-      </Heading>
+      {/* <Heading as="h3" fontSize="xl" my={4}>
+        Click me
+      </Heading> */}
       <Button
         width="full"
         disabled={waitForTransaction.isLoading || contractWrite.isLoading || !contractWrite.write}
         mt={4}
         onClick={handleSendTransation}>
-        {waitForTransaction.isLoading ? 'Minting NFT...' : contractWrite.isLoading ? 'Check your wallet' : 'Mint NFT'}
+        {waitForTransaction.isLoading ? 'Minting NFT...' : contractWrite.isLoading ? 'Check your wallet' : 'Click me'}
       </Button>
       {waitForTransaction.isSuccess && (
         <div>
@@ -70,11 +70,11 @@ export default function MintNFTExample() {
   if (isConnected) {
     return (
       <div>
-        <NextSeo title="Mint NFT" />
+        <NextSeo title="Hello!" />
         <Heading as="h2" fontSize="2xl" my={4}>
-          Mint ERC721 NFT
+          Hello!
         </Heading>
-        <p>This example shows how to mint an ERC721 NFT.</p>
+        {/* <p>This example shows how to mint an ERC721 NFT.</p>
 
         <UnorderedList>
           <ListItem>
@@ -83,9 +83,9 @@ export default function MintNFTExample() {
           <ListItem>
             <LinkComponent href="https://wagmi.sh/examples/contract-write">Wagmi Docs</LinkComponent>
           </ListItem>
-        </UnorderedList>
+        </UnorderedList> */}
 
-        <MintNFT />
+        <New />
       </div>
     )
   }

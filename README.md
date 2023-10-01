@@ -1,14 +1,8 @@
-# Nexth
+# Tuesday Heartbreak
 
-A Next.js + Ethereum starter kit to quickly ship Web3 Apps ⚡
+A variant of [Nexth](https://github.com/wslyvh/nexth/), a boilerplate built by @wslyvh and [others](https://github.com/wslyvh/nexth/graphs/contributors).
 
-![Nexth Readme Image](./readme.png)
-
-## Getting Started 👀
-
-Check-out the [example pages](./src/pages/examples/) or [live demo](https://nexth.vercel.app/) to see how you can use this starter kit.
-
-## Features ✅
+## Features
 
 - [Next.js](https://nextjs.org/docs)
 - [Chakra UI](https://chakra-ui.com/)
@@ -18,30 +12,36 @@ Check-out the [example pages](./src/pages/examples/) or [live demo](https://next
 - [Sign-In with Ethereum](https://www.login.xyz/)
 - [usehooks-ts](https://usehooks-ts.com/)
 - [next-SEO](https://github.com/garmeeh/next-seo)
-
-## Developer Experience 🧰
-
 - [TypeScript](https://www.typescriptlang.org/)
 - [eslint](https://eslint.org/)
 - [prettier](https://prettier.io/)
 - [Husky](https://typicode.github.io/husky/)
 
-## Development 🛠️
+## Install
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
 ```
 
-### Smart Contracts
+## Run
 
-If you want to add smart contracts to your project, check out the docs at [contracts folder](./contracts).
+Create a `.env` on the model of `.env.template`:
 
-## Deploy on Vercel 🚢
+```sh
+cp .env.example .env
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwslyvh%2Fnexth)
+Add your own keys in your `.env` file, then:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=nexth&filter=next.js&utm_source=nexth&utm_campaign=nexth-readme) from the creators of Next.js.
+```bash
+pnpm dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Versions
+
+- Node [v18.15.0](https://nodejs.org/uk/blog/release/v18.15.0/)
+- NPM [v9.5.0](https://github.com/npm/cli/releases/tag/v9.5.0)
+
+## Support
+
+You can contact me via [Element](https://matrix.to/#/@julienbrg:matrix.org), [Telegram](https://t.me/julienbrg), [Twitter](https://twitter.com/julienbrg), [Discord](https://discord.gg/uSxzJp3J76), or [LinkedIn](https://www.linkedin.com/in/julienberanger/).

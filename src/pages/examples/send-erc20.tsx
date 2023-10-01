@@ -105,5 +105,5 @@ export default function SendERC20Example() {
     )
   }
 
-  return <div>Connect your wallet first to sign a message.</div>
+  return <div>Please connect your wallet.</div>
 }
