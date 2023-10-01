@@ -11,15 +11,15 @@ export function Seo() {
       defaultTitle={SITE_NAME}
       titleTemplate={`%s | ${SITE_NAME}`}
       description={SITE_DESCRIPTION}
-      defaultOpenGraphImageWidth={1200}
-      defaultOpenGraphImageHeight={630}
+      defaultOpenGraphImageWidth={762}
+      defaultOpenGraphImageHeight={708}
       openGraph={{
         type: 'website',
         siteName: SITE_NAME,
         url: origin,
         images: [
           {
-            url: `${origin}/og.png`,
+            url: `${origin}/lode-runner.png`,
             alt: `${SITE_NAME} Open Graph Image`,
           },
         ],
