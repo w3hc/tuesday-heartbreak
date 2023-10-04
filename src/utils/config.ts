@@ -16,7 +16,7 @@ export const SOCIAL_GITHUB = 'w3hc/tuesday-heartbreak'
 
 export const artheraTestnet: Chain = {
   id: 10243,
-  name: 'Arthera TestNet',
+  name: 'Arthera Testnet',
   network: 'artheraTestnet',
   nativeCurrency: {
     decimals: 18,
