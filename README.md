@@ -1,11 +1,12 @@
 # Tuesday Heartbreak
 
-A variant of [Nexth](https://github.com/wslyvh/nexth/), a boilerplate built by @wslyvh and [others](https://github.com/wslyvh/nexth/graphs/contributors).
+A variant of [Nexth](https://github.com/wslyvh/nexth/), a boilerplate built by [wslyvh](https://github.com/wslyvh) and [others](https://github.com/wslyvh/nexth/graphs/contributors).
 
 ## Features
 
 - [Next.js](https://nextjs.org/docs)
 - [Chakra UI](https://chakra-ui.com/)
+- [Ethers v6](https://docs.ethers.org/v6/)
 - [viem](https://viem.sh/)
 - [wagmi](https://wagmi.sh/)
 - [Web3Modal SDK from WalletConnect](https://docs.walletconnect.com/)
@@ -39,8 +40,8 @@ pnpm dev
 
 ## Versions
 
-- Node [v18.15.0](https://nodejs.org/uk/blog/release/v18.15.0/)
-- NPM [v9.5.0](https://github.com/npm/cli/releases/tag/v9.5.0)
+- Node [v18.17.1](https://nodejs.org/uk/blog/release/v18.17.1/)
+- PNPM [v8.8.0](https://pnpm.io/pnpm-vs-npm)
 
 ## Support
 

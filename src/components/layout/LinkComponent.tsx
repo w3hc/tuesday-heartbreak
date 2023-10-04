@@ -17,7 +17,7 @@ export function LinkComponent(props: Props) {
 
   if (isExternal) {
     return (
-      <Link className={className} _hover={{ color: color }} href={props.href} target="_blank" rel="noopener noreferrer">
+      <Link className={className} _hover={{ color: '#8c1c84' }} href={props.href} target="_blank" rel="noopener noreferrer">
         {props.children}
       </Link>
     )
