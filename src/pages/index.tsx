@@ -3,17 +3,19 @@ import { Head } from 'components/layout/Head'
 import { HeadingComponent } from 'components/layout/HeadingComponent'
 import { LinkComponent } from 'components/layout/LinkComponent'
 import { useState, useEffect } from 'react'
-import { useAccount, useNetwork, useWalletClient } from 'wagmi'
+import { useAccount, useNetwork, useWalletClient, useSwitchNetwork } from 'wagmi'
 import { ethers } from 'ethers'
 import { NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI } from '../utils/nft'
-import { walletClientToSigner, useEthersSigner } from '../hooks/ethersAdapter'
+import { walletClientToSigner } from '../hooks/ethersAdapter'
 
 export default function Home() {
   const { isConnected } = useAccount()
   const { data: walletClient, isError } = useWalletClient()
   const toast = useToast()
+  const { chain } = useNetwork()
+  const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
 
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const [signer, setSigner] = useState<any>()
   const [txLink, setTxLink] = useState<string>()
   const [txHash, setTxHash] = useState<string>()
@@ -23,6 +25,9 @@ export default function Home() {
       console.log('isConnected:', isConnected)
       if (walletClient) {
         setSigner(walletClientToSigner(walletClient))
+      }
+      if (chain?.id !== 10243) {
+        switchNetwork?.(10243)
       }
     }
     init()
@@ -42,7 +47,7 @@ export default function Home() {
         })
         return
       }
-      setIsLoading(true)
+      setLoading(true)
       setTxHash('')
       setTxLink('')
       const nft = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI, signer)
@@ -51,7 +56,7 @@ export default function Home() {
       console.log('tx:', receipt)
       setTxHash(receipt.hash)
       setTxLink('https://explorer-test.arthera.net/tx/' + receipt.hash)
-      setIsLoading(false)
+      setLoading(false)
       toast({
         title: 'Successful mint',
         description: 'Congrats, your NFT was minted! 🎉',
@@ -62,7 +67,7 @@ export default function Home() {
         isClosable: true,
       })
     } catch (e) {
-      setIsLoading(false)
+      setLoading(false)
       console.log('error:', e)
       toast({
         title: 'Woops',
