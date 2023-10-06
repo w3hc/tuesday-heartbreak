@@ -3,39 +3,39 @@ import { Head } from 'components/layout/Head'
 import { HeadingComponent } from 'components/layout/HeadingComponent'
 import { LinkComponent } from 'components/layout/LinkComponent'
 import { useState, useEffect } from 'react'
-import { useAccount, useNetwork, useWalletClient, useSwitchNetwork } from 'wagmi'
+import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { ethers } from 'ethers'
 import { NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI } from '../utils/nft'
-import { walletClientToSigner } from '../hooks/ethersAdapter'
+import { useEthersSigner, useEthersProvider } from '../hooks/ethersAdapter'
 
 export default function Home() {
+  const { chains, error, pendingChainId, switchNetwork } = useSwitchNetwork()
   const { isConnected } = useAccount()
-  const { data: walletClient, isError } = useWalletClient()
-  const toast = useToast()
   const { chain } = useNetwork()
-  const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
+  const provider = useEthersProvider()
+  const signer = useEthersSigner()
+  const toast = useToast()
 
-  const [loading, setLoading] = useState<boolean>(false)
-  const [signer, setSigner] = useState<any>()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [txLink, setTxLink] = useState<string>()
   const [txHash, setTxHash] = useState<string>()
 
   useEffect(() => {
     const init = async () => {
-      console.log('isConnected:', isConnected)
-      if (walletClient) {
-        setSigner(walletClientToSigner(walletClient))
-      }
       if (chain?.id !== 10243) {
         switchNetwork?.(10243)
       }
     }
     init()
-  }, [walletClient])
+    console.log('isConnected:', isConnected)
+    console.log('network:', chain?.name)
+    console.log('signer:', signer)
+    console.log('provider:', provider)
+  }, [signer])
 
   const mint = async () => {
     try {
-      if (!walletClient) {
+      if (!signer) {
         toast({
           title: 'No wallet',
           description: 'Please connect your wallet first.',
@@ -47,7 +47,7 @@ export default function Home() {
         })
         return
       }
-      setLoading(true)
+      setIsLoading(true)
       setTxHash('')
       setTxLink('')
       const nft = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI, signer)
@@ -56,7 +56,7 @@ export default function Home() {
       console.log('tx:', receipt)
       setTxHash(receipt.hash)
       setTxLink('https://explorer-test.arthera.net/tx/' + receipt.hash)
-      setLoading(false)
+      setIsLoading(false)
       toast({
         title: 'Successful mint',
         description: 'Congrats, your NFT was minted! 🎉',
@@ -67,7 +67,7 @@ export default function Home() {
         isClosable: true,
       })
     } catch (e) {
-      setLoading(false)
+      setIsLoading(false)
       console.log('error:', e)
       toast({
         title: 'Woops',
