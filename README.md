@@ -29,7 +29,7 @@ pnpm install
 Create a `.env` on the model of `.env.template`:
 
 ```sh
-cp .env.example .env
+cp .env.template .env
 ```
 
 Add your own keys in your `.env` file, then:
@@ -38,10 +38,16 @@ Add your own keys in your `.env` file, then:
 pnpm dev
 ```
 
+## Build
+
+```bash
+pnpm build
+```
+
 ## Versions
 
 - Node [v18.17.1](https://nodejs.org/uk/blog/release/v18.17.1/)
-- PNPM [v8.8.0](https://pnpm.io/pnpm-vs-npm)
+- PNPM [v8.7.5](https://pnpm.io/pnpm-vs-npm)
 
 ## Support
 
